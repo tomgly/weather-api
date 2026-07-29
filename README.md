@@ -1,8 +1,8 @@
 # Weather API
 
-![Python](https://img.shields.io/badge/python-3.13%2B-blue)
-![FastAPI](https://img.shields.io/badge/framework-FastAPI-009688)
-![License](https://img.shields.io/badge/license-MIT-green)
+[![Python](https://img.shields.io/badge/python-3.13%2B-blue)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/framework-FastAPI-009688)](https://fastapi.tiangolo.com/)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 A small local API for current weather, pollen (allergy), and air quality data for US cities, powered by Weather.com's public data API.
 
