@@ -5,5 +5,8 @@ services:
       dockerfile: Dockerfile
     container_name: weather-api
     restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
     ports:
       - "8000:8000"
