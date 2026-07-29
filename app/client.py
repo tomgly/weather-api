@@ -12,6 +12,7 @@ load_dotenv()
 
 BASE_URL = "https://weather.com"
 API_BASE_URL = "https://api.weather.com"
+# Not a secret: public key shared by weather.com's frontend.
 API_KEY = os.getenv("WEATHER_API_KEY", "71f92ea9dd2f4790b92ea9dd2f779061")
 REQUEST_TIMEOUT = float(os.getenv("REQUEST_TIMEOUT", "20"))
 USER_AGENT = os.getenv(
