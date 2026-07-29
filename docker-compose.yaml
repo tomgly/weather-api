@@ -1,0 +1,9 @@
+services:
+  weather-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: weather-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
