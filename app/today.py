@@ -24,19 +24,23 @@ class TodayDataError(Exception):
 def build_today_response(
     observations: dict[str, Any],
     daily_forecast: dict[str, Any],
-    hourly_forecast: dict[str, Any],
 ) -> dict[str, Any]:
     """Build the /today response from Weather.com API payloads."""
 
     try:
+        today = daily_forecast["daypart"][0]
+
         return {
             "temperature": observations["temperature"],
             "condition": observations["wxPhraseLong"],
             "feels_like": observations["temperatureFeelsLike"],
             "high": daily_forecast["temperatureMax"][0],
             "low": daily_forecast["temperatureMin"][0],
-            "chance_of_rain_percent": hourly_forecast["precipChance"][0],
-            "precipitation_inches": hourly_forecast["qpf"][0],
+            "chance_of_rain_percent": max(
+                today["precipChance"][0],
+                today["precipChance"][1],
+            ),
+            "precipitation_inches": daily_forecast["qpf"][0],
             "units": {
                 "temperature": "F",
                 "precipitation": "in",
@@ -82,16 +86,9 @@ async def get_today(
             units="e",
         )
 
-        hourly_forecast = await fetch_weather_api(
-            "/v3/wx/forecast/hourly/2day",
-            geocode,
-            units="e",
-        )
-
         return build_today_response(
             observations,
             daily_forecast,
-            hourly_forecast,
         )
 
     except InvalidLocationError as error:
