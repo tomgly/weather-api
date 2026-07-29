@@ -26,8 +26,8 @@ Interactive docs are available at `/docs` once the server is running.
    ```
 3. (Optional) Copy `.env.example` to `.env` and set `WEATHER_API_KEY` if Weather.com's key ever rotates (grab a fresh one from the Network tab on any weather.com page).
 
-   > [!NOTE]
-   > The default `WEATHER_API_KEY` isn't a secret tied to an account. It's the public key weather.com's own web frontend sends with every request, so every visitor to the site ends up using the same one.
+> [!NOTE]
+> The default `WEATHER_API_KEY` isn't a secret tied to an account. It's the public key that Weather.com's web frontend sends with every request, so every visitor to the site uses the same key.
 
 4. Run the server:
    ```
